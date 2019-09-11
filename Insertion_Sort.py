@@ -10,18 +10,24 @@
 # Description: Insertion Sort Algorthim
 # ==================================================================== #
 
-def insertion_sort_build():
-    sortArray = []
-
-
 def insertion_sort(sortArray):
-    j = 2
-    for j in sortArray:
-        key = sortArray[j]
-        i = j - 1
-        while i > 0 and sortArray[i] > key:
-             sortArray[i] = sortArray[i+1]
-             i = i - 1
-        sortArray[i+1] = key
 
-def main():
+    # run through entire array
+    for i in range(1, len(sortArray)):
+        key = sortArray[i]
+        j = i - 1
+        # moves the key through i-1 to 0 to find position where key < positon
+        while j >= 0 and sortArray[j] > key:
+             sortArray[j+1] = sortArray[j]
+             j = j - 1
+        sortArray[j+1] = key
+
+# Quick Test
+def main():    
+
+    testArray = [18, 14, 4, 7, 12, 2, 3, 6]
+    insertion_sort(testArray)   
+    print (testArray)
+
+# Runs Main Test
+main()
