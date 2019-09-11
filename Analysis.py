@@ -9,3 +9,21 @@
 
 # Description: Sorting Algorthim Analysizer
 # ==================================================================== #
+
+from datetime import datetime
+
+#TODO: Figure how to get start time
+#TODO: Manage Time
+
+startTime= datetime.now()
+
+print(startTime)
+
+#TODO: Figue out a way to manage data without killing the process
+#TODO: Graphic?
+
+
+
+#TODO: Number Randomizer
+#TODO: make Massive Arrays Case Statement.
+
