@@ -10,17 +10,17 @@
 # Description: Insertion Sort Algorthim
 # ==================================================================== #
 
-def insertion_sort(sortArray):
+def insertion_sort(unsortedList):
 
     # run through entire array
-    for i in range(1, len(sortArray)):
-        key = sortArray[i]
+    for i in range(1, len(unsortedList)):
+        key = unsortedList[i]
         j = i - 1
         # moves the key through i-1 to 0 to find position where key < positon
-        while j >= 0 and sortArray[j] > key:
-             sortArray[j+1] = sortArray[j]
+        while j >= 0 and unsortedList[j] > key:
+             unsortedList[j+1] = unsortedList[j]
              j = j - 1
-        sortArray[j+1] = key
+        unsortedList[j+1] = key
 
 # Quick Test
 def main():    
