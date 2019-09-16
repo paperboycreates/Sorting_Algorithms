@@ -61,7 +61,6 @@ def initArr(n):
 def isSorted(arr):
     if (len(arr) < 2):
         return True
-    i = 0
     for i in range(len(arr)):
         if (i + 1 < len(arr) and arr[i] > arr[i + 1]):
             return False
@@ -69,7 +68,7 @@ def isSorted(arr):
 
 
 # generate arr of length n and merge
-arr = initArr(1000000)
+arr = initArr(100)
 # print(arr)
 
 mergeSort(arr)
