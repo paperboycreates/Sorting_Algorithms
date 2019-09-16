@@ -13,8 +13,8 @@
 from datetime import datetime
 import random
 from Counting_Sort import counting_Sort
-from Insertion_Sort import insertion_sort
-# from Merge_Sort import mergeSort
+#from Insertion_Sort import insertion_sort
+from Merge_Sort import mergeSort
 
 #TODO: Figure how to get start time
 #TODO: Manage Time
@@ -37,14 +37,17 @@ def isSorted(newList):
     return True
 
 startTime = endTime = totalTime = 0
-n = 100
+n = 100000
 unsortedList = initList(n)
 
 # start clock and perform sort
 startTime = datetime.now()
-sortedList = counting_Sort(unsortedList) # fix each sort to take unsorted list
+#sortedList = mergeSort(unsortedList)
+sortedList = counting_Sort(unsortedList)
 endTime = datetime.now()
 
+# print(sortedList)
+# get total time and display
 totalTime = endTime - startTime
 print(isSorted(sortedList))
 print(totalTime)
