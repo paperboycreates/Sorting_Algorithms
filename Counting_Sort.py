@@ -10,32 +10,38 @@
 # Description: Counting Sort Algorthim
 # ==================================================================== #
 
-
-def counting_Sort(unSorted, sorted, count):
+def counting_Sort(unSorted):
+    
     #intiazlie count
-    i = 0
-    for i in range(0, k):
-        count[i] = 0
-    #creat counts
-    j =1
-    for j in range(0, len(unSorted)):
-        count[unSorted[j]] = count[unSorted[j]]+1
-    #creat running sum
-    i = 1
-    for i in range(0,k):
-        count[i] = count[i]+count[i-1]
-    #place elements
-    j = len(unSorted)
-    for j range(j, 1, -1):
-        sorted[count[unSorted[j]]] = unSorted[j]
-        count[unSorted[j]] = count[unSorted[j]]-1
+    maxValue = max(unSorted)+ 1
+    count = [0] * (maxValue)
+
+    # find freq of numbers in unsorted
+    for i in unSorted:
+        count[i] += 1
+
+    # removes 0 indexing
+    count [0] = count[0] - 1
+
+    # arrange count for unsortedList index
+    for i in range(1, maxValue):
+        count[i] = count[i] + count[i-1]        
+
+    sortedList = [None] * len(unSorted)
+   
+    # build sorted list
+    for j in reversed(unSorted):
+        sortedList[count[j]] = j
+        count[j] = count[j] - 1
+
+    return sortedList
 
 # Quick Test
 def main():    
 
     testArray = [18, 14, 4, 7, 12, 2, 3, 6, 100, 40, 5, 1]
-    counting_Sort(testArray)   
-    print (testArray)
+    sorted = counting_Sort(testArray)   
+    print(sorted)
 
 # Runs Main Test
 main()
