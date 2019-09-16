@@ -11,16 +11,38 @@
 # ==================================================================== #
 
 from datetime import datetime
+import random
+from Counting_Sort import counting_Sort
+from Insertion_Sort import insertion_sort
+# from Merge_Sort import mergeSort
 
 #TODO: Figure how to get start time
 #TODO: Manage Time
 
-startTime= datetime.now()
+listSize = 1000
+randomIntList = [0] * (listSize)
 
-print(startTime)
+for x in range(listSize):
+  randomIntList[x] = random.randint(1,listSize)
+
+
+startTime = 0 
+endTime = 0
+totalTime = 0
+
+startTime = datetime.now()
+sortedList = counting_Sort(randomIntList)
+endTime - datetime.now()
+
+totalTime = endTime - startTime
+print (sortedList)
+print(totalTime)
+
+
 
 #TODO: Figue out a way to manage data without killing the process
 #TODO: Graphic?
+
 
 
 
