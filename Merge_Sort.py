@@ -10,8 +10,6 @@
 # Description: Merge Sort Algorthim
 # ==================================================================== #
 
-import random 
-
 def mergeSort(arr):
     if (len(arr) > 1):
         # get the middle element of mid (floored) and split
@@ -24,6 +22,7 @@ def mergeSort(arr):
         mergeSort(right)
 
         merge(arr, left, right)
+        return arr
 
 def merge(arr, left, right):
     i = 0
@@ -50,27 +49,3 @@ def merge(arr, left, right):
         arr[k] = right[j]
         j += 1
         k += 1
-
-def initArr(n):
-    arr = []
-    for i in range(n):
-        rand = random.randint(0, n)
-        arr.append(rand)
-    return arr
-
-def isSorted(arr):
-    if (len(arr) < 2):
-        return True
-    for i in range(len(arr)):
-        if (i + 1 < len(arr) and arr[i] > arr[i + 1]):
-            return False
-    return True  
-
-
-# generate arr of length n and merge
-arr = initArr(100)
-# print(arr)
-
-mergeSort(arr)
-# print(arr)
-print(isSorted(arr))
