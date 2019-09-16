@@ -10,14 +10,14 @@
 # Description: Counting Sort Algorthim
 # ==================================================================== #
 
-def counting_Sort(unSorted):
+def counting_Sort(unsortedList):
     
     #intiazlie count
-    maxValue = max(unSorted)+ 1
+    maxValue = max(unsortedList)+ 1
     count = [0] * (maxValue)
 
     # find freq of numbers in unsorted
-    for i in unSorted:
+    for i in unsortedList:
         count[i] += 1
 
     # removes 0 indexing
@@ -27,10 +27,10 @@ def counting_Sort(unSorted):
     for i in range(1, maxValue):
         count[i] = count[i] + count[i-1]        
 
-    sortedList = [None] * len(unSorted)
+    sortedList = [None] * len(unsortedList)
    
     # build sorted list
-    for j in reversed(unSorted):
+    for j in reversed(unsortedList):
         sortedList[count[j]] = j
         count[j] = count[j] - 1
 
