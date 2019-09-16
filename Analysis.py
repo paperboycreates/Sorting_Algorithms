@@ -19,23 +19,34 @@ from Insertion_Sort import insertion_sort
 #TODO: Figure how to get start time
 #TODO: Manage Time
 
-listSize = 1000
-randomIntList = [0] * (listSize)
+# funct to init arr of length n with rand values [0..n]
+def initList(n):
+    newList = []
+    for i in range(n):
+        rand = random.randint(0, n)
+        newList.append(rand)
+    return newList
 
-for x in range(listSize):
-  randomIntList[x] = random.randint(1,listSize)
+# funct to check if arr is sorted
+def isSorted(newList):
+    if (len(newList) < 2):
+        return True
+    for i in range(len(newList)):
+        if (i + 1 < len(newList) and newList[i] > newList[i + 1]):
+            return False
+    return True
 
+startTime = endTime = totalTime = 0
+n = 100
+unsortedList = initList(n)
 
-startTime = 0 
-endTime = 0
-totalTime = 0
-
+# start clock and perform sort
 startTime = datetime.now()
-sortedList = counting_Sort(randomIntList)
-endTime - datetime.now()
+sortedList = counting_Sort(unsortedList) # fix each sort to take unsorted list
+endTime = datetime.now()
 
 totalTime = endTime - startTime
-print (sortedList)
+print(isSorted(sortedList))
 print(totalTime)
 
 
