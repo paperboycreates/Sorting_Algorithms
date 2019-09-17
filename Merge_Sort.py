@@ -10,42 +10,39 @@
 # Description: Merge Sort Algorthim
 # ==================================================================== #
 
-def mergeSort(arr):
-    if (len(arr) > 1):
+def mergeSort(newList):
+    if (len(newList) > 1):
         # get the middle element of mid (floored) and split
-        mid = len(arr) // 2
-        left = arr[0:mid]
-        right = arr[mid:len(arr)]
+        mid = len(newList) // 2
+        left = newList[0:mid]
+        right = newList[mid:len(newList)]
 
         # recursively call mergeSort on both halves
         mergeSort(left)
         mergeSort(right)
 
-        merge(arr, left, right)
-        return arr
+        merge(newList, left, right)
+        return newList
 
-def merge(arr, left, right):
-    i = 0
-    j = 0
-    k = 0
-    # simultaneously traverse left and right getting smallest
+def merge(newList, left, right):
+    i = j = k = 0
+    # simultaneously traverse left and right, getting smallest
     while i < len(left) and j < len(right):
         if (left[i] < right[j]):
-            arr[k] = left[i]
+            newList[k] = left[i]
             i += 1
             k += 1
         else:
-            arr[k] = right[j]
+            newList[k] = right[j]
             j += 1
             k += 1
 
-    # check both arrays for anything left
+    # check both lists for anything left
     while (i < len(left)):
-        arr[k] = left[i]
+        newList[k] = left[i]
         i += 1
         k += 1
-
     while (j < len(right)):
-        arr[k] = right[j]
+        newList[k] = right[j]
         j += 1
         k += 1

@@ -12,12 +12,11 @@
 
 from datetime import datetime
 import random
-from Counting_Sort import counting_Sort
-#from Insertion_Sort import insertion_sort
-from Merge_Sort import mergeSort
+import matplotlib.pyplot as plt
 
-#TODO: Figure how to get start time
-#TODO: Manage Time
+from Merge_Sort import mergeSort
+# from Counting_Sort import counting_Sort
+# from Insertion_Sort import insertion_sort
 
 # funct to init arr of length n with rand values [0..n]
 def initList(n):
@@ -36,30 +35,31 @@ def isSorted(newList):
             return False
     return True
 
+def createGraph(n, totalTime):
+    # create arr of length n with each n as element
+    newList = []
+    for i in range(n):
+        newList.append(i)
+
+    # plot the num of elems over time
+    plt.plot(newList, newList)
+    plt.xlabel('num of elements')
+    plt.ylabel('time (s)')
+    plt.show()
+
 startTime = endTime = totalTime = 0
 n = 100000
 unsortedList = initList(n)
 
 # start clock and perform sort
 startTime = datetime.now()
-#sortedList = mergeSort(unsortedList)
-sortedList = counting_Sort(unsortedList)
+sortedList = mergeSort(unsortedList)
 endTime = datetime.now()
 
-# print(sortedList)
 # get total time and display
 totalTime = endTime - startTime
 print(isSorted(sortedList))
 print(totalTime)
 
-
-
-#TODO: Figue out a way to manage data without killing the process
-#TODO: Graphic?
-
-
-
-
-#TODO: Number Randomizer
-#TODO: make Massive Arrays Case Statement.
-
+# plot graph
+createGraph(n, totalTime)
