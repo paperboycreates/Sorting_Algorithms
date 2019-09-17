@@ -12,8 +12,8 @@
 
 from datetime import datetime
 import random
-from Counting_Sort import counting_Sort
-#from Insertion_Sort import insertion_sort
+from Counting_Sort import countingSort
+from Insertion_Sort import insertionSort
 from Merge_Sort import mergeSort
 
 #TODO: Figure how to get start time
@@ -37,29 +37,55 @@ def isSorted(newList):
     return True
 
 startTime = endTime = totalTime = 0
-n = 100000
+n = 1000000
 unsortedList = initList(n)
 
 # start clock and perform sort
 startTime = datetime.now()
-#sortedList = mergeSort(unsortedList)
-sortedList = counting_Sort(unsortedList)
+sortedList = mergeSort(unsortedList)
 endTime = datetime.now()
 
 # print(sortedList)
 # get total time and display
 totalTime = endTime - startTime
+print("Merge Sort")
 print(isSorted(sortedList))
 print(totalTime)
+print()
+
+
+
+# start clock and perform sort
+startTime = datetime.now()
+sortedList = countingSort(unsortedList)
+endTime = datetime.now()
+
+# print(sortedList)
+# get total time and display
+totalTime = endTime - startTime
+print("Counting Sort")
+print(isSorted(sortedList))
+print(totalTime)
+print()
+
+
+
+# start clock and perform sort
+startTime = datetime.now()
+sortedList = insertionSort(unsortedList)
+endTime = datetime.now()
+
+# print(sortedList)
+# get total time and display
+totalTime = endTime - startTime
+print("Insertion Sort")
+print(isSorted(sortedList))
+print(totalTime)
+print()
 
 
 
 #TODO: Figue out a way to manage data without killing the process
 #TODO: Graphic?
-
-
-
-
 #TODO: Number Randomizer
 #TODO: make Massive Arrays Case Statement.
-
