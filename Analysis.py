@@ -12,14 +12,12 @@
 
 from datetime import datetime
 import random
+
 from Counting_Sort import countingSort
 from Insertion_Sort import insertionSort
 from Merge_Sort import mergeSort
 
-#TODO: Figure how to get start time
-#TODO: Manage Time
-
-# funct to init arr of length n with rand values [0..n]
+# funct to init list of length n with rand values [0..n]
 def initList(n):
     newList = []
     for i in range(n):
@@ -27,7 +25,7 @@ def initList(n):
         newList.append(rand)
     return newList
 
-# funct to check if arr is sorted
+# funct to check if list is sorted
 def isSorted(newList):
     if (len(newList) < 2):
         return True
@@ -36,60 +34,66 @@ def isSorted(newList):
             return False
     return True
 
-startTime = endTime = totalTime = 0
-n = 1000000
-unsortedList = initList(n)
+testInterval = [10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000]
+# Number of Elements highest list
+n = max(testInterval)
 
-# start clock and perform sort
-startTime = datetime.now()
-sortedList = mergeSort(unsortedList)
-endTime = datetime.now()
+for i in testInterval:
+    # ==================================================================== #
+    # Counting Sort O(n)
+    # ==================================================================== #
+    startTime = endTime = totalTime = 0
+    unsortedList = initList(n)
 
-# print(sortedList)
-# get total time and display
-totalTime = endTime - startTime
-print("Merge Sort")
-print(isSorted(sortedList))
-print(totalTime)
-print()
+    # start clock and perform sort
+    startTime = datetime.now()
+    sortedList = countingSort(unsortedList)
+    endTime = datetime.now()
 
-startTime = endTime = totalTime = 0
-n = 1000000
-unsortedList = initList(n)
+    # print(sortedList)
+    # get total time and display
+    totalTime = endTime - startTime
+    # print("Counting Sort")
+    # print(isSorted(sortedList))
+    # print(totalTime)
+    # print()
 
-# start clock and perform sort
-startTime = datetime.now()
-sortedList = countingSort(unsortedList)
-endTime = datetime.now()
+    # ==================================================================== #
+    # Merge Sort O(nlgn)
+    # ==================================================================== #
 
-# print(sortedList)
-# get total time and display
-totalTime = endTime - startTime
-print("Counting Sort")
-print(isSorted(sortedList))
-print(totalTime)
-print()
+    startTime = endTime = totalTime = 0
+    unsortedList = initList(n)
 
-startTime = endTime = totalTime = 0
-n = 100000
-unsortedList = initList(n)
+    # start clock and perform sort
+    startTime = datetime.now()
+    sortedList = mergeSort(unsortedList)
+    endTime = datetime.now()
 
-# start clock and perform sort
-startTime = datetime.now()
-sortedList = insertionSort(unsortedList)
-endTime = datetime.now()
+    # print(sortedList)
+    # get total time and display
+    totalTime = endTime - startTime
+    # print("Merge Sort")
+    # print(isSorted(sortedList))
+    # print(totalTime)
+    # print()
 
-# print(sortedList)
-# get total time and display
-totalTime = endTime - startTime
-print("Insertion Sort")
-print(isSorted(sortedList))
-print(totalTime)
-print()
+    # ==================================================================== #
+    # Insertion Sort O(n^2)
+    # ==================================================================== #
+    if i >= 10,000:
+        startTime = endTime = totalTime = 0
+        unsortedList = initList(n)
 
+        # start clock and perform sort
+        startTime = datetime.now()
+        sortedList = insertionSort(unsortedList)
+        endTime = datetime.now()
 
-
-#TODO: Figue out a way to manage data without killing the process
-#TODO: Graphic?
-#TODO: Number Randomizer
-#TODO: make Massive Arrays Case Statement.
+        # print(sortedList)
+        # get total time and display
+        totalTime = endTime - startTime
+        # print("Insertion Sort")
+        # print(isSorted(sortedList))
+        # print(totalTime)
+        # print()
