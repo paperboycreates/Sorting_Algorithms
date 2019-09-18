@@ -2,7 +2,7 @@
 # File Name: Merge_Sort.py
 # Authors: Jacob Sheets & Jake Allinson
 # Date Created: 10 Sept 2019
-# Version: 0.0.1
+# Version: 1.0.1
 
 # Copyright: Copyright 2019, Sorting_Algorthims
 # Course: CS3410 Cedarville University
@@ -39,7 +39,7 @@ def merge(arr, left, right):
             j += 1
             k += 1
 
-    # check both arrays for anything left
+    # check both list for anything left
     while (i < len(left)):
         arr[k] = left[i]
         i += 1
