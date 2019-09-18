@@ -53,7 +53,9 @@ print(isSorted(sortedList))
 print(totalTime)
 print()
 
-
+startTime = endTime = totalTime = 0
+n = 1000000
+unsortedList = initList(n)
 
 # start clock and perform sort
 startTime = datetime.now()
@@ -68,7 +70,9 @@ print(isSorted(sortedList))
 print(totalTime)
 print()
 
-
+startTime = endTime = totalTime = 0
+n = 100000
+unsortedList = initList(n)
 
 # start clock and perform sort
 startTime = datetime.now()
