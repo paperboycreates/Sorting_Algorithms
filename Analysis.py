@@ -11,7 +11,9 @@
 # ==================================================================== #
 
 from datetime import datetime
+import time
 import random
+#import matplotlib.pyplot as plt
 
 from Counting_Sort import countingSort
 from Insertion_Sort import insertionSort
@@ -42,15 +44,12 @@ timeCount = []
 timeMerge = []
 timeInsert = []
 
-
-
-
 for i in testInterval:
     # ==================================================================== #
     # Counting Sort O(n)
     # ==================================================================== #
     startTime = endTime = totalTime = 0
-    unsortedList = initList(n)
+    unsortedList = initList(i)
 
     # start clock and perform sort
     startTime = time.time()
@@ -70,7 +69,7 @@ for i in testInterval:
     # ==================================================================== #
 
     startTime = endTime = totalTime = 0
-    unsortedList = initList(n)
+    unsortedList = initList(i)
 
     # start clock and perform sort
     startTime = time.time()
@@ -88,9 +87,9 @@ for i in testInterval:
     # ==================================================================== #
     # Insertion Sort O(n^2)
     # ==================================================================== #
-    if i >= 10000:
+    if i <= 50000:
         startTime = endTime = totalTime = 0
-        unsortedList = initList(n)
+        unsortedList = initList(i)
 
         # start clock and perform sort
         startTimeInsert = time.time()
@@ -103,3 +102,10 @@ for i in testInterval:
         # print(isSorted(sortedList))
         # print(totalTime)
         # print()
+    else: 
+        timeInsert.append(0)
+
+print(timeCount)
+print(timeMerge)
+print(timeInsert)
+
