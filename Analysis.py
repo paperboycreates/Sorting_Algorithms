@@ -38,6 +38,13 @@ testInterval = [10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000
 # Number of Elements highest list
 n = max(testInterval)
 
+timeCount = []
+timeMerge = []
+timeInsert = []
+
+
+
+
 for i in testInterval:
     # ==================================================================== #
     # Counting Sort O(n)
@@ -46,13 +53,13 @@ for i in testInterval:
     unsortedList = initList(n)
 
     # start clock and perform sort
-    startTime = datetime.now()
+    startTime = time.time()
     sortedList = countingSort(unsortedList)
-    endTime = datetime.now()
+    totalTime = time.time() - startTime
+    timeCount.append(totalTime)
 
     # print(sortedList)
     # get total time and display
-    totalTime = endTime - startTime
     # print("Counting Sort")
     # print(isSorted(sortedList))
     # print(totalTime)
@@ -66,13 +73,13 @@ for i in testInterval:
     unsortedList = initList(n)
 
     # start clock and perform sort
-    startTime = datetime.now()
+    startTime = time.time()
     sortedList = mergeSort(unsortedList)
-    endTime = datetime.now()
+    totalTime = time.time() - startTime
+    timeMerge.append(totalTime)
 
     # print(sortedList)
     # get total time and display
-    totalTime = endTime - startTime
     # print("Merge Sort")
     # print(isSorted(sortedList))
     # print(totalTime)
@@ -81,18 +88,17 @@ for i in testInterval:
     # ==================================================================== #
     # Insertion Sort O(n^2)
     # ==================================================================== #
-    if i >= 10,000:
+    if i >= 10000:
         startTime = endTime = totalTime = 0
         unsortedList = initList(n)
 
         # start clock and perform sort
-        startTime = datetime.now()
+        startTimeInsert = time.time()
         sortedList = insertionSort(unsortedList)
-        endTime = datetime.now()
+        totalTimeInsert = time.time() - startTimeInsert
+        timeInsert.append(totalTimeInsert)
 
         # print(sortedList)
-        # get total time and display
-        totalTime = endTime - startTime
         # print("Insertion Sort")
         # print(isSorted(sortedList))
         # print(totalTime)
