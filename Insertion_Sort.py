@@ -21,13 +21,5 @@ def insertion_sort(unsortedList):
              unsortedList[j+1] = unsortedList[j]
              j = j - 1
         unsortedList[j+1] = key
+        return unsortedList
 
-# Quick Test
-def main():    
-
-    testArray = [18, 14, 4, 7, 12, 2, 3, 6, 100, 40, 5, 1]
-    insertion_sort(testArray)   
-    print (testArray)
-
-# Runs Main Test
-main()

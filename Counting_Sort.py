@@ -35,13 +35,3 @@ def counting_Sort(unsortedList):
         count[j] = count[j] - 1
 
     return sortedList
-
-# Quick Test
-def main():    
-
-    testArray = [18, 14, 4, 7, 12, 2, 3, 6, 100, 40, 5, 1]
-    sorted = counting_Sort(testArray)   
-    print(sorted)
-
-# Runs Main Test
-main()

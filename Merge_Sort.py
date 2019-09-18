@@ -22,6 +22,27 @@ def mergeSort(newList):
         mergeSort(right)
 
         merge(newList, left, right)
+        i = j = k = 0
+        # simultaneously traverse left and right, getting smallest
+        while i < len(left) and j < len(right):
+            if (left[i] < right[j]):
+                newList[k] = left[i]
+                i += 1
+                k += 1
+            else:
+                newList[k] = right[j]
+                j += 1
+                k += 1
+
+        # check both lists for anything left
+        while (i < len(left)):
+            newList[k] = left[i]
+            i += 1
+            k += 1
+        while (j < len(right)):
+            newList[k] = right[j]
+            j += 1
+            k += 1
         return newList
 
 def merge(newList, left, right):
